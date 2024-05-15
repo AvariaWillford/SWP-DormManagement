@@ -1,0 +1,11 @@
+.QA-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 60px;
+}
+
+.about-title {
+    margin: 40px;
+    font-size: 42px;
+}
