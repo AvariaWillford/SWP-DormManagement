@@ -1,7 +1,17 @@
 package entity;
 
 public class account {
-    private String accountID, studentID,username, password,gmail,rolename;
+    private String accountID, studentID, username, password, gmail, rolename;
+
+    public account(String accountID, String studentID, String username, String password, String gmail, String rolename) {
+        this.accountID = accountID;
+        this.studentID = studentID;
+        this.username = username;
+        this.password = password;
+        this.gmail = gmail;
+        this.rolename = rolename;
+
+    }
 
     public String getAccountID() {
         return accountID;
