@@ -3,6 +3,9 @@ package entity;
 public class account {
     private String accountID, studentID, username, password, gmail, rolename;
 
+    public account() {
+    }
+
     public account(String accountID, String studentID, String username, String password, String gmail, String rolename) {
         this.accountID = accountID;
         this.studentID = studentID;
