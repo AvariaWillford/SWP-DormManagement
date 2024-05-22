@@ -1,0 +1,79 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : May 22, 2024, 12:53:03 AM
+    Author     : trant
+*/
+body {
+    font-family: Arial, sans-serif;
+}
+
+table {
+    width: 60%;
+    
+    align-self: center;
+}
+tr{
+    margin-left: 10px;
+}
+td {
+    padding-right: 20px;
+    border: 1px solid #ddd;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px 20px;
+    padding-right: 40;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid orange;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: blue;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: green;
+}
+
+input[type="reset"] {
+    background-color: orange;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="reset"]:hover {
+    background-color: blue;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.center {
+    margin-left: 600px;
+    width: 50%;
+    padding: 10px;
+}
+
+.heading{
+    background: lightskyblue;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+}
