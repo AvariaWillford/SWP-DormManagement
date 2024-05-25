@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
-     <welcome-file-list>
-        
-    <welcome-file>
+    <welcome-file-list>
+        <welcome-file>
         loginURL
     </welcome-file>
     </welcome-file-list>
@@ -12,31 +11,15 @@
     </servlet>
     <servlet>
         <servlet-name>login</servlet-name>
-        <servlet-class>AccountController.login</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>register</servlet-name>
-        <servlet-class>AccountController.registerAccount</servlet-class>
+        <servlet-class>AdminController.adminLogin</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>forgotPassword</servlet-name>
-        <servlet-class>AccountController.forgotPassword</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>checkRePassword</servlet-name>
-        <servlet-class>AccountController.checkRePassword</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>registerInformation</servlet-name>
-        <servlet-class>StudentController.checkInformation</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>registerInf</servlet-name>
-        <servlet-class>StudentController.registerInf</servlet-class>
+        <servlet-class>AdminController.forgotPassword</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>logout</servlet-name>
-        <servlet-class>AccountController.logout</servlet-class>
+        <servlet-class>AdminController.logout</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>StudentController</servlet-name>
@@ -47,20 +30,8 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>register</servlet-name>
-        <url-pattern>/register</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>forgotPassword</servlet-name>
         <url-pattern>/forgotPassword</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>checkRePassword</servlet-name>
-        <url-pattern>/checkRePassword</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>registerInf</servlet-name>
-        <url-pattern>/registerInf</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>logout</servlet-name>

@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.account;
+import model.admin;
 
 /**
  *
@@ -43,55 +43,14 @@ public class DAOstudent extends DAL.DBContext{
 //        }
 //        return list;
 //    }
-  
+//  
     
     
     public static void main(String[] args) {
         DAOstudent dao = new DAOstudent();
-        dao.checkStdInfExists("555");
+       
         
     }
-    public void registerInfomation(String gmail, String rollName, String fullName, String phoneNumber, String term) { //checked
-        String sql = "INSERT INTO student (rollName, fullname, campus, phoneNumber, gender, term, balance, gmail) values(?,?,?,?,?,?,?,?)";
-        PreparedStatement pre;
-        try {
-            pre = conn.prepareStatement(sql); 
-            pre.setString(1, rollName);
-            pre.setString(2, fullName);
-            pre.setString(3, "0");
-            pre.setString(4, phoneNumber);
-            pre.setString(5, "0");
-            pre.setString(6, term);
-            pre.setString(7, "0");
-            pre.setString(8, gmail);               
-            pre.executeUpdate();
-        } catch (Exception e) {
-            System.out.println("loi ");
-        }
-    }
-    public account checkStdInfExists (String gmail){// checked
-        String sql = "select * from [student] where [gmail] ='"+gmail+"'";
-
-        try {
-            Statement state = conn.createStatement(
-                    ResultSet.TYPE_SCROLL_SENSITIVE,
-                    ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs = state.executeQuery(sql);
-            
-            while (rs.next()) {   
-                String gmailToCheck = rs.getString(1);
-                String password = rs.getString(2);
-                int role = rs.getInt(3);
-                
-                account account = new account(gmail, password, role);
-
-                return account;
-            }
-        } catch (SQLException ex) {
-            System.out.println("loi");
-            Logger.getLogger(DAOstudent.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-        
-    }
+   
+   
 }
