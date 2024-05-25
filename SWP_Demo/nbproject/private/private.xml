@@ -3,16 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/SWP_Demo/src/java/Controller/StudentController.java</file>
-            <file>file:/C:/SWP_Demo/src/java/Constants.java</file>
-            <file>file:/C:/SWP_Demo/web/index.jsp</file>
-            <file>file:/C:/SWP_Demo/src/java/DAL/DBContext.java</file>
-            <file>file:/C:/SWP_Demo/web/login.jsp</file>
             <file>file:/C:/SWP_Demo/web/index.html</file>
-            <file>file:/C:/SWP_Demo/web/WEB-INF/web.xml</file>
+            <file>file:/C:/SWP_Demo/web/ViewPage.jsp</file>
             <file>file:/C:/SWP_Demo/src/java/DAO/DAOstudent.java</file>
+            <file>file:/C:/SWP_Demo/src/java/model/admin.java</file>
             <file>file:/C:/SWP_Demo/src/java/model/student.java</file>
-            <file>file:/C:/SWP_Demo/web/homepage.jsp</file>
+            <file>file:/C:/SWP_Demo/src/java/AdminController/adminLogin.java</file>
+            <file>file:/C:/SWP_Demo/web/AdminHome.jsp</file>
+            <file>file:/C:/SWP_Demo/web/StudentHome.jsp</file>
+            <file>file:/C:/SWP_Demo/src/java/DAL/DBContext.java</file>
+            <file>file:/C:/SWP_Demo/src/java/AdminController/logout.java</file>
+            <file>file:/C:/SWP_Demo/web/WEB-INF/web.xml</file>
+            <file>file:/C:/SWP_Demo/src/java/model/bed.java</file>
+            <file>file:/C:/SWP_Demo/src/java/DAO/DAOadmin.java</file>
+            <file>file:/C:/SWP_Demo/src/java/model/news.java</file>
+            <file>file:/C:/SWP_Demo/src/java/AdminController/forgotPassword.java</file>
+            <file>file:/C:/SWP_Demo/src/java/model/DormResident.java</file>
         </group>
     </open-files>
 </project-private>

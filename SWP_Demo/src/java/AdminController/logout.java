@@ -2,10 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package AccountController;
+package AdminController;
 
-import DAO.DAOaccount;
-import DAO.DAOstudent;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,14 +12,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.*;
 
 /**
  *
  * @author lenovo
  */
-@WebServlet(name="LoginController", urlPatterns={"/loginURL"})
-public class login extends HttpServlet {
+@WebServlet(name="logout", urlPatterns={"/logout"})
+
+public class logout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,29 +33,9 @@ public class login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String gmail = request.getParameter("gmail");
-        String password = request.getParameter("pass");
-        DAOaccount dao = new DAOaccount();
-        account acc = dao.login(gmail, password);
-        
-        if(acc==null){
-            request.setAttribute("message", "Wrong user or pass");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }
-        else{             
-             DAO.DAOstudent std = new DAOstudent();
-            account a = std.checkStdInfExists(gmail);
-            if (a == null) {
-                
-                response.sendRedirect("signupInfomation.jsp");
-            } else {
-                //
-                response.sendRedirect("homepage.jsp");
-            }
-            
-            
-
-        }
+       HttpSession session = request.getSession();
+        session.removeAttribute("acc");
+        response.sendRedirect("viewPage.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
