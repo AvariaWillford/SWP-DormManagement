@@ -8,49 +8,75 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.admin;
+import model.student;
+
 
 /**
  *
  * @author lenovo
  */
 public class DAOstudent extends DAL.DBContext{
-//    public List<student> getAllStudent() { //checked
-//        List<student> list = new ArrayList<>();
-//        try {
-//            String sql = "SELECT * from student";
-//            PreparedStatement stm = conn.prepareStatement(sql);
-//            ResultSet rs = stm.executeQuery();
-//            while (rs.next()) {
-//                student student = new student();
-//                student.setFullname(rs.getString(1));
-//                student.setCampus(rs.getString(2));
-//                student.setPhoneNumber(rs.getString(3));
-//                student.setGender(rs.getInt(4));
-//                student.setEmail(rs.getString(5));
-//                student.setTerm(rs.getString(6));
-//                student.setBalance(rs.getFloat(7));
-//                student.setRollName(rs.getString(8));
-//                
-//                list.add(student);
-//                
-//                
-//            }
-//        } catch (Exception ex) {
-//            Logger.getLogger(DAOstudent.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return list;
-//    }
-//  
+
     
     
-    public static void main(String[] args) {
-        DAOstudent dao = new DAOstudent();
-       
-        
+    
+
+    public List<student> getStudent(String sql) {
+        List<student> list = new ArrayList<>();
+        try {
+            Statement statement = conn.createStatement(
+                    ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+//                dataType varName=rs.getdataType(index,fieldName);
+                student student = new student();
+                student.setRollName(rs.getString(1));
+                student.setFullname(rs.getString(2));
+                student.setCampus(rs.getString(3));
+                student.setPhoneNumber(rs.getString(4));
+                student.setGender(rs.getString(5));
+                student.setTerm(rs.getString(6));
+                student.setBalance(rs.getFloat(7));
+                student.setGmail(rs.getString(8));
+                list.add(student);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOstudent.class.getName()).log(Level.SEVERE, sql);
+        }
+        return list;
     }
-   
-   
+    public int updateStudent(student obj) {
+        int n = 0;
+        String sql = "UPDATE [dbo].[Student]\n"
+                + "   SET \n"
+                + "         [fullname] = ?,[campus] = ?\n"
+                + "      ,[phoneNumber] = ?,[gender] = ?,[term] = ?\n"
+                + "      ,[balance] = ?,[gmail] = ?\n"
+                + " WHERE [rollName] = ?";
+        
+        
+        try {
+            PreparedStatement prestatement = conn.prepareStatement(sql);
+//            prestatement.setDatatype(indexOf?,parameterValue);
+            
+            prestatement.setString(1, obj.getFullname());
+            prestatement.setString(2, obj.getCampus());
+            prestatement.setString(3, obj.getPhoneNumber());
+            prestatement.setString(4, obj.getGender());
+            prestatement.setString(5, obj.getTerm());
+            prestatement.setFloat(6, obj.getBalance());
+            prestatement.setString(7, obj.getGmail());
+            prestatement.setString(8, obj.getRollName());
+            n = prestatement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOstudent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return n;
+
+    }
 }
