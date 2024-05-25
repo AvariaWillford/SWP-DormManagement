@@ -1,7 +1,7 @@
 ﻿/*create database SWP*/
 drop database SWP
 
-drop table Student
+drop table DormResident
 drop table Admin
 
 
@@ -26,8 +26,44 @@ CREATE TABLE Student (
 
    
 )
+
+
+CREATE TABLE Bed(
+	bedName Varchar(100) primary key,
+	status bit,
+	price decimal(10,2),
+
+);
+create table DormResident(
+	rollName varchar(50),
+	bedName varchar(100),
+	 FOREIGN KEY (rollName) REFERENCES Student(rollName),
+	  FOREIGN KEY (bedName) REFERENCES Bed(bedName),
+);
+
+create table News(
+	newsName varchar(1000) primary key,
+	newsDetail varchar(5000),
+	time varchar(10),
+	day varchar(20),
+	picture varchar,
+	postBy varchar(20)
+
+);
+
+
 insert into Admin
 values('admin', 'admin')
+
+
+insert into Bed
+values('no1',1,100.00),
+('no2',1,200.00),
+('no3',1,300.00),
+('no4',1,400.00),
+('no5',1,500.00),
+('no6',1,100.00),
+('no7',1,300.00);
 
 
 INSERT INTO Student (rollName, fullname, campus, phoneNumber, gender, term, balance, gmail) VALUES

@@ -8,18 +8,16 @@ package model;
  *
  * @author lenovo
  */
-public class account {
+public class admin {
     String gmail;
     String password;
-    int role;
 
-    public account() {
+    public admin() {
     }
 
-    public account(String gmail, String password, int role) {
+    public admin(String gmail, String password) {
         this.gmail = gmail;
         this.password = password;
-        this.role = role;
     }
 
     public String getGmail() {
@@ -38,18 +36,12 @@ public class account {
         this.password = password;
     }
 
-    public int getRole() {
-        return role;
-    }
-
-    public void setRole(int role) {
-        this.role = role;
-    }
-
     @Override
     public String toString() {
-        return "account{" + "gmail=" + gmail + ", password=" + password + ", role=" + role + '}';
+        return "admin{" + "gmail=" + gmail + ", password=" + password + '}';
     }
+
+ 
 
     
     

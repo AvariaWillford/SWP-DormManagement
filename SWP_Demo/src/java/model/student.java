@@ -15,7 +15,6 @@ public class student {
     String campus;
     String phoneNumber;
     String gender;
-    String email;
     String term;
     float balance;
     String gmail;
@@ -23,13 +22,13 @@ public class student {
     public student() {
     }
 
-    public student(String rollName, String fullname, String campus, String phoneNumber, String gender, String email, String term, float balance, String gmail) {
+    public student(String rollName, String fullname, String campus, String phoneNumber, String gender, String term, float balance, String gmail) {
         this.rollName = rollName;
         this.fullname = fullname;
         this.campus = campus;
         this.phoneNumber = phoneNumber;
         this.gender = gender;
-        this.email = email;
+   
         this.term = term;
         this.balance = balance;
         this.gmail = gmail;
@@ -75,14 +74,6 @@ public class student {
         this.gender = gender;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getTerm() {
         return term;
     }
@@ -109,9 +100,10 @@ public class student {
 
     @Override
     public String toString() {
-        return "student{" + "rollName=" + rollName + ", fullname=" + fullname + ", campus=" + campus + ", phoneNumber=" + phoneNumber + ", gender=" + gender + ", email=" + email + ", term=" + term + ", balance=" + balance + ", gmail=" + gmail + '}';
+        return "student{" + "rollName=" + rollName + ", fullname=" + fullname + ", campus=" + campus + ", phoneNumber=" + phoneNumber + ", gender=" + gender + ", term=" + term + ", balance=" + balance + ", gmail=" + gmail + '}';
     }
 
+   
    
     
 
