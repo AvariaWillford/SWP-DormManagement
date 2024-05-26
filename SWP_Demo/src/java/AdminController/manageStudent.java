@@ -43,7 +43,7 @@ public class manageStudent extends HttpServlet {
         DAOstudent dao = new DAOstudent();
         String service = request.getParameter("service");
         if (service == null) {
-            service = "listAllCustomer";
+            service = "listAllStudent";
         }
 
         if (service.equals("updateStudent")) {
@@ -82,70 +82,32 @@ public class manageStudent extends HttpServlet {
         }
 
         if (service.equals("deleteCustomer")) {
-            int id = Integer.parseInt(request.getParameter("customerID"));
-            dao.removeCustomer(id);
-            response.sendRedirect("CustomerURL?service=listAllCustomer");
+            int roll = Integer.parseInt(request.getParameter("rollName"));
+            dao.removeStudent(roll);
+            response.sendRedirect("manageStudent?service=listAllStudent");
         }
-        if (service.equals("insertCustomer")) {
-            String submit = request.getParameter("submit");
-            if (submit == null) {
-                Vector<Customer> vector = (Vector<Customer>)dao.getCustomer("Select top 1 * from [dbo].[customers] order by customer_id desc ");
-                request.setAttribute("vector", vector);
-                request.getRequestDispatcher("/jsp/InsertCustomer.jsp").forward(request, response);
+        
+        
 
-            } else {
-                String customer_id = request.getParameter("customer_id");
-                String fname = request.getParameter("fname");
-                String lname = request.getParameter("lname");
-                String phone = request.getParameter("phone");
-                String email = request.getParameter("email");
-                String street = request.getParameter("street");
-                String city = request.getParameter("city");
-                String state = request.getParameter("state");
-                String zip_code = request.getParameter("zip_code");
-                //CHECK DATA
-                String sql = "select * from customers where customer_id = " + customer_id;
-                Vector<Customer> vector = dao.getCustomer(sql);
-                if (vector.size() > 0) {
-
-                    response.sendRedirect("CustomerURL?service=listAllCustomer");
-
-                }
-                //CONVERT
-                int customer_id_c = Integer.parseInt(customer_id);
-
-                //CREATE ENTITY
-                Customer customer = new Customer(customer_id_c, fname, lname, phone, email, street, city, state, zip_code);
-                dao.addCustomer(customer);
-                response.sendRedirect("CustomerURL");
-            }
-        }
-        if (service.equals("deleteCustomer")) {
-            int id = Integer.parseInt(request.getParameter("customerID"));
-            dao.removeCustomer(id);
-            response.sendRedirect("CustomerURL?service=listAllCustomer");
-
-        }
-
-        if (service.equals("listAllCustomer")) {
+        if (service.equals("listAllStudent")) {
             //CHECK SUBMIT
             String submit = request.getParameter("submit");
-            Vector<Customer> vector = null;
+            List<student> list  = null;
             if (submit == null) {
-                vector = dao.getCustomer("select * from customers");
+                list = dao.getStudent("select * from customers");
             } else {
-                String c_id = request.getParameter("customer_id");
-                vector = dao.getCustomer("select * from customers where customer_id like '%" + c_id + "%'");
+                String roll = request.getParameter("rollName");
+                list = dao.getStudent("select * from Student where rollName like '%" + roll + "%'");
             }
 
-            String titlePage = "Customer Manage";
-            String titleTable = "List of Customers";
+            String titlePage = "Sutdent Manage";
+            String titleTable = "LIst of Student";
             //SET DATA FOR VIEW
-            request.setAttribute("data", vector);
+            request.setAttribute("data", list);
             request.setAttribute("page", titlePage);
             request.setAttribute("titleTable", titleTable);
             //SELECT VIEW
-            RequestDispatcher dispatch = request.getRequestDispatcher("/jsp/ViewCustomer.jsp");
+            RequestDispatcher dispatch = request.getRequestDispatcher("/ManageStudent.jsp");
             //RUN
             dispatch.forward(request, response);
         }

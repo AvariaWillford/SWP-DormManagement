@@ -79,4 +79,18 @@ public class DAOstudent extends DAL.DBContext{
         return n;
 
     }
+     public int removeStudent(int rollName) {
+        int n = 0;
+        
+
+        String sql = "delete from Student where rollName = " + rollName;
+        try {
+            Statement statement = conn.createStatement();
+            n = statement.executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOstudent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return n;
+    }
 }
