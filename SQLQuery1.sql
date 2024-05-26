@@ -1,7 +1,7 @@
 ﻿/*create database SWP*/
 drop database SWP
 
-drop table DormResident
+drop table Bed
 drop table Admin
 
 
@@ -26,17 +26,29 @@ CREATE TABLE Student (
 
    
 )
+CREATE table dorm(
+	dormName varchar(10) primary key,
 
+);
+
+create table room(
+	roomName varchar(10) primary key,
+	dormName varchar(10)
+		FOREIGN KEY (dormName) REFERENCES dorm(dormName),
+
+);
 
 CREATE TABLE Bed(
 	bedName Varchar(100) primary key,
 	status bit,
 	price decimal(10,2),
+	roomName varchar(10),
+	FOREIGN KEY (roomName) REFERENCES room(roomName),
 
 );
 create table DormResident(
-	rollName varchar(50),
-	bedName varchar(100),
+	rollName varchar(50) unique,
+	bedName varchar(100) unique,
 	 FOREIGN KEY (rollName) REFERENCES Student(rollName),
 	  FOREIGN KEY (bedName) REFERENCES Bed(bedName),
 );
@@ -56,14 +68,43 @@ insert into Admin
 values('admin', 'admin')
 
 
-insert into Bed
-values('no1',1,100.00),
-('no2',1,200.00),
-('no3',1,300.00),
-('no4',1,400.00),
-('no5',1,500.00),
-('no6',1,100.00),
-('no7',1,300.00);
+insert into dorm
+values('Dorm A'),
+('Dorm B'),
+('Dorm C'),
+('Dorm D'),
+('Dorm E');
+
+
+INSERT INTO room (roomName, dormName) VALUES
+('A101', 'Dorm A'), ('A201', 'Dorm A'), ('A301', 'Dorm A'), ('A401', 'Dorm A'),
+('B101', 'Dorm B'), ('B201', 'Dorm B'), ('B301', 'Dorm B'), ('B401', 'Dorm B'),
+('C101', 'Dorm C'), ('C201', 'Dorm C'), ('C301', 'Dorm C'), ('C401', 'Dorm C'),
+('D101', 'Dorm D'), ('D201', 'Dorm D'), ('D301', 'Dorm D'), ('D401', 'Dorm D'),
+('E101', 'Dorm E'), ('E201', 'Dorm E'), ('E301', 'Dorm E'), ('E401', 'Dorm E');
+
+
+INSERT INTO Bed (bedName, status, price, roomName) VALUES
+('no1_A101', 0, 100000, 'A101'), ('no2_A101', 0, 100000, 'A101'), ('no3_A101', 0, 100000, 'A101'), ('no4_A101', 0, 100000, 'A101'),
+('no1_A201', 0, 100000, 'A201'), ('no2_A201', 0, 100000, 'A201'), ('no3_A201', 0, 100000, 'A201'), ('no4_A201', 0, 100000, 'A201'),
+('no1_A301', 0, 100000, 'A301'), ('no2_A301', 0, 100000, 'A301'), ('no3_A301', 0, 100000, 'A301'), ('no4_A301', 0, 100000, 'A301'),
+('no1_A401', 0, 100000, 'A401'), ('no2_A401', 0, 100000, 'A401'), ('no3_A401', 0, 100000, 'A401'), ('no4_A401', 0, 100000, 'A401'),
+('no1_B101', 0, 100000, 'B101'), ('no2_B101', 0, 100000, 'B101'), ('no3_B101', 0, 100000, 'B101'), ('no4_B101', 0, 100000, 'B101'),
+('no1_B201', 0, 100000, 'B201'), ('no2_B201', 0, 100000, 'B201'), ('no3_B201', 0, 100000, 'B201'), ('no4_B201', 0, 100000, 'B201'),
+('no1_B301', 0, 100000, 'B301'), ('no2_B301', 0, 100000, 'B301'), ('no3_B301', 0, 100000, 'B301'), ('no4_B301', 0, 100000, 'B301'),
+('no1_B401', 0, 100000, 'B401'), ('no2_B401', 0, 100000, 'B401'), ('no3_B401', 0, 100000, 'B401'), ('no4_B401', 0, 100000, 'B401'),
+('no1_C101', 0, 100000, 'C101'), ('no2_C101', 0, 100000, 'C101'), ('no3_C101', 0, 100000, 'C101'), ('no4_C101', 0, 100000, 'C101'),
+('no1_C201', 0, 100000, 'C201'), ('no2_C201', 0, 100000, 'C201'), ('no3_C201', 0, 100000, 'C201'), ('no4_C201', 0, 100000, 'C201'),
+('no1_C301', 0, 100000, 'C301'), ('no2_C301', 0, 100000, 'C301'), ('no3_C301', 0, 100000, 'C301'), ('no4_C301', 0, 100000, 'C301'),
+('no1_C401', 0, 100000, 'C401'), ('no2_C401', 0, 100000, 'C401'), ('no3_C401', 0, 100000, 'C401'), ('no4_C401', 0, 100000, 'C401'),
+('no1_D101', 0, 100000, 'D101'), ('no2_D101', 0, 100000, 'D101'), ('no3_D101', 0, 100000, 'D101'), ('no4_D101', 0, 100000, 'D101'),
+('no1_D201', 0, 100000, 'D201'), ('no2_D201', 0, 100000, 'D201'), ('no3_D201', 0, 100000, 'D201'), ('no4_D201', 0, 100000, 'D201'),
+('no1_D301', 0, 100000, 'D301'), ('no2_D301', 0, 100000, 'D301'), ('no3_D301', 0, 100000, 'D301'), ('no4_D301', 0, 100000, 'D301'),
+('no1_D401', 0, 100000, 'D401'), ('no2_D401', 0, 100000, 'D401'), ('no3_D401', 0, 100000, 'D401'), ('no4_D401', 0, 100000, 'D401'),
+('no1_E101', 0, 100000, 'E101'), ('no2_E101', 0, 100000, 'E101'), ('no3_E101', 0, 100000, 'E101'), ('no4_E101', 0, 100000, 'E101'),
+('no1_E201', 0, 100000, 'E201'), ('no2_E201', 0, 100000, 'E201'), ('no3_E201', 0, 100000, 'E201'), ('no4_E201', 0, 100000, 'E201'),
+('no1_E301', 0, 100000, 'E301'), ('no2_E301', 0, 100000, 'E301'), ('no3_E301', 0, 100000, 'E301'), ('no4_E301', 0, 100000, 'E301'),
+('no1_E401', 0, 100000, 'E401'), ('no2_E401', 0, 100000, 'E401'), ('no3_E401', 0, 100000, 'E401'), ('no4_E401', 0, 100000, 'E401');
 
 
 INSERT INTO Student (rollName, fullname, campus, phoneNumber, gender, term, balance, gmail) VALUES
