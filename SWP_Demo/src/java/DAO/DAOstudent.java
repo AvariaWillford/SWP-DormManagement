@@ -79,7 +79,7 @@ public class DAOstudent extends DAL.DBContext{
         return n;
 
     }
-     public int removeStudent(int rollName) {
+     public int removeStudent(String rollName) {
         int n = 0;
         
 
@@ -93,4 +93,5 @@ public class DAOstudent extends DAL.DBContext{
 
         return n;
     }
+     
 }

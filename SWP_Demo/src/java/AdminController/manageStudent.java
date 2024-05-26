@@ -49,9 +49,9 @@ public class manageStudent extends HttpServlet {
         if (service.equals("updateStudent")) {
             String submit = request.getParameter("submit");
             if (submit == null) {
-                List<student> list = (ArrayList<student>)dao.getStudent("select * from Student where rollName = " + Integer.parseInt(request.getParameter("rollName")));
+                List<student> list = (ArrayList<student>)dao.getStudent("select * from Student where rollName = " + request.getParameter("rollName"));
                 request.setAttribute("list", list);
-                request.getRequestDispatcher("/updateStudent.jsp").forward(request, response);
+                request.getRequestDispatcher("/UpdateStudent.jsp").forward(request, response);
 
             } else {
                 String rollName = request.getParameter("rollName");
@@ -63,7 +63,7 @@ public class manageStudent extends HttpServlet {
                 String balance = request.getParameter("balance");
                 String gmail = request.getParameter("gmail");
                 //CHECK DATA
-               float balance_c = Integer.parseInt(balance);
+                float balance_c = Integer.parseInt(balance);
                 String sql = "select * from Student where rollName = " + rollName;
                 List<student> list = dao.getStudent(sql);
                 if (list.size() > 0) {
@@ -81,9 +81,9 @@ public class manageStudent extends HttpServlet {
 
         }
 
-        if (service.equals("deleteCustomer")) {
-            int roll = Integer.parseInt(request.getParameter("rollName"));
-            dao.removeStudent(roll);
+        if (service.equals("deleteStudent")) {
+            String rollName = request.getParameter("rollName");
+            dao.removeStudent(rollName);
             response.sendRedirect("manageStudent?service=listAllStudent");
         }
         
@@ -94,7 +94,7 @@ public class manageStudent extends HttpServlet {
             String submit = request.getParameter("submit");
             List<student> list  = null;
             if (submit == null) {
-                list = dao.getStudent("select * from customers");
+                list = dao.getStudent("select * from Student");
             } else {
                 String roll = request.getParameter("rollName");
                 list = dao.getStudent("select * from Student where rollName like '%" + roll + "%'");
