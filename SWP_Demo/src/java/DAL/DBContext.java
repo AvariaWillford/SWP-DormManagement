@@ -47,7 +47,7 @@ public class DBContext {
     }
     public DBContext(){
       this("jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=SWP",
-                    "sa","minhdbd4");
+                    "sa","Hung12345$");
     }
     public static void main(String[] args) {
         new DBContext();
