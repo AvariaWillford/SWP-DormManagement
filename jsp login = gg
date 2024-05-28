@@ -1,2 +1,0 @@
- href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:8080/SWP/LoginGoogleHandler&response_type=code&client_id=220738550679-sqc94uk3vc4b1f1fs03s1v4jvub9n5fi.apps.googleusercontent.com&approval_prompt=force" >
- //gắn link này vào nút login = gg
