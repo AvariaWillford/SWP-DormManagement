@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.admin;
+import model.student;
 
 /**
  *
@@ -45,6 +46,32 @@ public class DAOstudent extends DAL.DBContext{
 //    }
 //  
     
+     public student checkStudentExistByEmail(String mail) {
+        String sql = "select * from Student where gmail = ?";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, mail);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                String roll = rs.getString(1);
+                String fullname = rs.getString(2);
+                String campus = rs.getString(3);
+                String phone = rs.getString(4);
+                String gender = rs.getString(5);
+                String term = rs.getString(6);
+                float balance = rs.getFloat(7);
+                String gmail = rs.getString(8);
+                student student = new student(roll, fullname, campus, phone, gender, term, balance, gmail);
+
+                return student;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     
     public static void main(String[] args) {
         DAOstudent dao = new DAOstudent();

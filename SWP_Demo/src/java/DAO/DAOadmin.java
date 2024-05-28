@@ -42,7 +42,26 @@ public class DAOadmin  extends DAL.DBContext{
         return null;
         
     }
-       
+       public admin checkAdminAccount(String mail) {
+        String sql = "select * from Admin where gmail = ?";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, mail);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                String gmail = rs.getString(1);
+                String password = rs.getString(2);
+
+                admin admin = new admin(gmail, password);
+
+                return admin;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
        public String forgotPassword (String gmail){ // checked
         String sql = "select * from [admin] where [gmail] ='"+gmail+"'";
 
