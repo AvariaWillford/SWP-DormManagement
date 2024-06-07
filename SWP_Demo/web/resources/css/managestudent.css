@@ -1,0 +1,53 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : May 26, 2024, 6:26:11 PM
+    Author     : trant
+*/
+
+
+
+.table-head{
+    background-color:  beige;
+    text-align: left;
+    border-width: 2px;
+    border: midnightblue;
+    border-style: solid;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   
+    
+}
+.row{
+    border-width: 2px;
+    border: midnightblue;
+    border-style: solid;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.table-body{
+    border-width: 4px;
+    border: midnightblue;
+    border-style: solid;
+    align-self: center;
+    margin-top: 130px;
+    
+
+}
+
+.caption-title{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 30px;
+}
+
+.menu-sidebar {
+    width: 300px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    overflow-y: auto;
+}
+
