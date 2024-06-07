@@ -17,6 +17,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +43,7 @@ public class manageStudent extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         DAOstudent dao = new DAOstudent();
         String service = request.getParameter("service");
+        HttpSession session = request.getSession(true);
         if (service == null) {
             service = "listAllStudent";
         }
@@ -86,6 +88,10 @@ public class manageStudent extends HttpServlet {
             dao.removeStudent(rollName);
             response.sendRedirect("manageStudent?service=listAllStudent");
         }
+        if (service.equals("logout")) {
+                session.invalidate();
+                response.sendRedirect("index.html");
+            }
         
         
 
@@ -99,9 +105,12 @@ public class manageStudent extends HttpServlet {
                 String roll = request.getParameter("rollName");
                 list = dao.getStudent("select * from Student where rollName like '%" + roll + "%'");
             }
+            
+            
+            
 
             String titlePage = "Sutdent Manage";
-            String titleTable = "LIst of Student";
+            String titleTable = "List of Student";
             //SET DATA FOR VIEW
             request.setAttribute("data", list);
             request.setAttribute("page", titlePage);
@@ -111,6 +120,8 @@ public class manageStudent extends HttpServlet {
             //RUN
             dispatch.forward(request, response);
         }
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
