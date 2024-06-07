@@ -62,10 +62,16 @@ create table News(
 	postBy varchar(20)
 
 );
-
+create table Requests(
+	requestType nvarchar(200) primary key,
+	rollName varchar(50),
+	requestDetail varchar(5000)
+	FOREIGN KEY (rollName) REFERENCES DormResident(rollName),
+);
 
 insert into Admin
-values('admin', 'admin')
+values('admin', 'admin'),
+('quanlydomfpt@gmail.com','quanlydomfpt1@')
 
 
 insert into dorm
