@@ -18,81 +18,104 @@
 
     </head>
     <body>
-        <p style="float:right; top:-40px"><span><a href="LoginURL?service=logout">Logout</a></span></p>
-        <aside class="menu-sidebar d-none d-lg-block" style="background: antiquewhite">
-            <div class="logo">
-                <a href="#">
-                    <img src="resources/img/fptuni.png" style="width:100%"; alt="FPT logo">
-                </a>
+        <div class="page-wrapper">
+
+            <aside class="menu-sidebar d-none d-lg-block" style="background-image: url(resources/img/back2.png);">
+                <div class="logo">
+                    <a href="#">
+                        <img src="resources/img/fptuni.png" style="width:100%"; alt="FPT logo">
+                    </a>
+                </div>
+                <div class="menu-sidebar__content js-scrollbar1 ps">
+                    <nav class="navbar-sidebar">
+                        <ul class="list-unstyled navbar__list">
+                            <li class="active has-sub">
+                                <a class="dashboard-link" href="#">Dashboard</a>
+                                <a class="dashboard-link" href="#">Dashboard</a>
+                                <a class="dashboard-link" href="#">Dashboard</a>
+                                <a class="dashboard-link" href="#">Dashboard</a>
+
+                            </li>
+
+                        </ul>
+                    </nav>
+                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+            </aside>
+            <div class="page-container">
+                <header class="header-desktop">
+                    <div class="section__content section__content--p30" style="margin-top: 15px">
+                        <div class="container-fluid">
+                            <div class="header-wrap">
+                                <form class="form-header "action="manageStudent" method="get" >
+                                    <input class="au-input au-input--xl"type="text" name="rollName" class="" placeholder="Search for student roll number...">
+                                    <input type="submit" name="submit" class="au-btn--submit"value="Search" >
+                                </form>
+
+
+                                <a href="#" class="logout-link">
+                                    <i class=""></i>Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <div class="main-content">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+
+
+                            <a href="manageStudent?service=listAllDormStudent" class="button-link">Show Dorm Resident Info</a>
+
+                            <div class="col-lg-9">
+                                <div class="table-responsive table--no-card m-b-30" style="margin-top: 50px">
+
+                                    <table class="table table-borderless table-striped table-dom" >
+                                        <%
+                                            String titleTable =(String)request.getAttribute("titleTable");
+                                        %>
+
+                                        <thead>
+                                            <tr class="">
+                                                <th>Roll Name</td>
+                                                <th>Full Name</td>
+                                                <th>Campus</td>
+                                                <th>Phone Number</td>
+                                                <th>Gender</td>
+                                                <th>Term</td>
+                                                <th>Balance</td>
+                                                <th>Gmail</td>
+                                                <th>Update</td>
+                                                <th>Delete</td>
+                                            </tr>
+                                        </thead>
+                                        <%
+                                              List<student> list = (ArrayList<student>)request.getAttribute("data");
+                                              for (student obj:list){
+                                        %>
+                                        <tr class="">
+                                            <td><%=obj.getRollName()%></td>
+                                            <td><%=obj.getFullname()%></td>
+                                            <td><%=obj.getCampus()%></td>
+                                            <td><%=obj.getPhoneNumber()%></td>
+                                            <td><%=obj.getGender()%></td>
+                                            <td><%=obj.getTerm()%></td>
+                                            <td><%=obj.getBalance()%></td>
+                                            <td><%=obj.getGmail()%></td>
+                                            <td><a href="manageStudent?service=updateStudent&rollName=<%=obj.getRollName()%>" class="general-link">Update</a></td>
+                                            <td><a href="manageStudent?service=deleteStudent&rollName=<%=obj.getRollName()%>" class="general-link">Delete</a></td>
+                                        </tr>
+                                        <%}%>
+
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="menu-sidebar__content js-scrollbar1 ps">
-                <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="">Dashboard 4</a>
-                                </li>
-                            </ul>
-                        </li>
+        </div>
 
-                    </ul>
-                </nav>
-                <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
-        </aside>
 
-        <form action="manageStudent" method="get" style="position: absolute;right: 100px;top: 40px">
-            <p>Search Roll Number:<input type="text" name="rollName">
-                <input type="submit" name="submit" value="Search">
-                <input type="reset" value="Clear">
-        </form>
-        <table class="table-body" style="position: absolute; right:250px">
-            <%
-                String titleTable =(String)request.getAttribute("titleTable");
-            %>
-
-            <caption class="caption-title"><%=titleTable%></caption>
-            <tr class="table-head">
-                <td>Roll Name</td>
-                <td>Full Name</td>
-                <td>Campus</td>
-                <td>Phone Number</td>
-                <td>Gender</td>
-                <td>Term</td>
-                <td>Balance</td>
-                <td>Gmail</td>
-                <td>Update</td>
-                <td>Delete</td>
-            </tr>
-            <%
-                  List<student> list = (ArrayList<student>)request.getAttribute("data");
-                  for (student obj:list){
-            %>
-            <tr class="row">
-                <td><%=obj.getRollName()%></td>
-                <td><%=obj.getFullname()%></td>
-                <td><%=obj.getCampus()%></td>
-                <td><%=obj.getPhoneNumber()%></td>
-                <td><%=obj.getGender()%></td>
-                <td><%=obj.getTerm()%></td>
-                <td><%=obj.getBalance()%></td>
-                <td><%=obj.getGmail()%></td>
-                <td><a href="manageStudent?service=updateStudent&rollName=<%=obj.getRollName()%>">Update</a></td>
-                <td><a href="manageStudent?service=deleteStudent&rollName=<%=obj.getRollName()%>">Delete</a></td>
-            </tr>
-            <%}%>
-        </table>
 
     </body>
 </html>

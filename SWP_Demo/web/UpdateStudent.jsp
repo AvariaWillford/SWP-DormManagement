@@ -23,7 +23,7 @@
             <table>
                 <tr>
                     <td>Roll Name</td>
-                    <td><input type="text" name="rollName" id=""value="<%=obj.getRollName()%>"></td>
+                    <td><input type="text" name="rollName" id=""value="<%=obj.getRollName()%>" readonly></td>
                 </tr>
                 <tr>
                     <td>Full Name</td>
@@ -39,7 +39,7 @@
                 </tr>
                 <tr>
                     <td>Gender</td>
-                    <td><input type="email" name="gender" id=""value="<%=obj.getGender()%>"></td>
+                    <td><input type="text" name="gender" id=""value="<%=obj.getGender()%>"></td>
                 </tr>
                 <tr>
                     <td>Term</td>
@@ -53,7 +53,7 @@
                 </tr>
                 <tr>
                     <td>Gmail</td>
-                    <td><input type="text" name="gmail" id=""value="<%=obj.getGmail()%>">
+                    <td><input type="text" name="gmail" id=""value="<%=obj.getGmail()%>" readonly>
                     </td>
                 </tr>
                 

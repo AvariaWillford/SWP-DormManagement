@@ -83,7 +83,7 @@ public class DAOstudent extends DAL.DBContext{
         int n = 0;
         
 
-        String sql = "delete from Student where rollName = " + rollName;
+        String sql = "delete from DormResident where rollName = '" + rollName + "'";
         try {
             Statement statement = conn.createStatement();
             n = statement.executeUpdate(sql);
