@@ -64,7 +64,8 @@
 
 
                             <a href="manageStudent?service=listAllDormStudent" class="button-link">Show Dorm Resident Info</a>
-
+                            <a href="manageStudent?service=addDormResident" class="button-link">Add student to Dorm</a>
+                            
                             <div class="col-lg-9">
                                 <div class="table-responsive table--no-card m-b-30" style="margin-top: 50px">
 

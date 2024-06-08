@@ -79,11 +79,10 @@ public class DAOstudent extends DAL.DBContext{
         return n;
 
     }
-     public int removeStudent(String rollName) {
-        int n = 0;
-        
 
-        String sql = "delete from DormResident where rollName = '" + rollName + "'";
+     public int addToDorm(String rollName,String bedName) {
+        int n = 0;
+        String sql = "insert into DormResident values ('"+ rollName + "','"+ bedName+"');";
         try {
             Statement statement = conn.createStatement();
             n = statement.executeUpdate(sql);

@@ -5,6 +5,7 @@
 
 package AdminController;
 
+import DAO.DAODormResident;
 import model.admin;
 import model.student;
 import DAO.DAOstudent;
@@ -21,6 +22,7 @@ import jakarta.servlet.http.HttpSession;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import model.DormResident;
 
 /**
  *
@@ -42,6 +44,7 @@ public class manageStudent extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         DAOstudent dao = new DAOstudent();
+        DAODormResident dao1 = new DAODormResident();
         String service = request.getParameter("service");
         HttpSession session = request.getSession(true);
         if (service == null) {
@@ -82,10 +85,31 @@ public class manageStudent extends HttpServlet {
             }
 
         }
+        if (service.equals("addDormResident")) {
+            String submit = request.getParameter("submit");
+            if (submit == null) {
+                request.getRequestDispatcher("addDormResident.jsp").forward(request, response);
+
+            } else {
+                String rollName = request.getParameter("rollName");
+                String bedName = request.getParameter("bedName");
+                String sql = ("select * from DormResident where bedName = '" + request.getParameter("bedName") +"'");
+                List<DormResident> list = dao1.getDormResident(sql);
+                if (list.size() > 0) {
+                    response.sendRedirect("manageStudent?service=listAllStudent");
+                    return;
+                }
+                //CONVERT
+
+                //CREATE ENTITY
+                dao1.addToDorm(rollName, bedName);
+                response.sendRedirect("manageStudent?service=listAllStudent");
+            }
+        }
 
         if (service.equals("deleteStudent")) {
             String rollName = request.getParameter("rollName");
-            dao.removeStudent(rollName);
+            dao1.removeStudent(rollName);
             response.sendRedirect("manageStudent?service=listAllStudent");
         }
         if (service.equals("logout")) {
