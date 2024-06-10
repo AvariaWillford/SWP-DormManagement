@@ -67,4 +67,8 @@ public class DAOadmin  extends DAL.DBContext{
         return null;
         
     }
+       public static void main(String[] args) {
+        DAOadmin dao = new DAOadmin();
+        dao.login("admin", "admin");
+    }
        }
