@@ -39,7 +39,7 @@ body{
 }
 
 .page-wrapper {
-    overflow: hidden;
+
 }
 
 div {
@@ -94,7 +94,7 @@ div {
 }
 
 .page-wrapper {
-    overflow: hidden
+  
 }
 
 .page-container {
@@ -298,10 +298,22 @@ input,textarea {
     border: none
 }
 
-button {
-    border: none;
-    background: 0 0
+.button-1 {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: none;
+  box-shadow: inset 0px 0px 5px #000000; 
+  outline: none; 
+  cursor: pointer; 
+  transition: all 0.3s ease; 
 }
+
+.button-1:active {
+  box-shadow: inset 0px 0px 10px #000000; 
+}
+
 
 img {
     max-width: 100%;
@@ -484,7 +496,7 @@ section {
 }
 
 .page-wrapper {
-    overflow: hidden
+  
 }
 
 .page-container {
@@ -1146,7 +1158,7 @@ section {
     border-top-right-radius: 4px;
     border: 1px solid #e0e0e0;
     margin-top: 8px;
-    overflow: hidden
+  
 }
 
 .rs-select2--dark .select2-container--open .select2-dropdown .select2-results__option,.rs-select2--trans .select2-container--open .select2-dropdown .select2-results__option,.rs-select2--light .select2-container--open .select2-dropdown .select2-results__option {
@@ -1589,7 +1601,7 @@ section {
     width: 45px;
     height: 45px;
     float: left;
-    overflow: hidden;
+
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px
@@ -1660,7 +1672,7 @@ section {
     float: left;
     height: 65px;
     width: 65px;
-    overflow: hidden;
+
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px
@@ -3444,7 +3456,7 @@ section {
     -moz-border-radius: 10px;
     border-radius: 10px;
     background: #fff;
-    overflow: hidden
+    
 }
 
 .au-card--border {
@@ -3789,7 +3801,7 @@ section {
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
-    overflow: hidden
+
 }
 
 .avatar::after {
@@ -5144,7 +5156,7 @@ section {
     padding: 20px 30px;
     position: relative;
     min-height: 180px;
-    overflow: hidden;
+ 
     margin-bottom: 40px
 }
 
@@ -14781,14 +14793,14 @@ section {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    overflow: hidden
+
 }
 
 .img-cir {
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
-    overflow: hidden
+ 
 }
 
 .img-40 {
@@ -14814,7 +14826,7 @@ section {
     width: 45px;
     height: 45px;
     float: left;
-    overflow: hidden;
+
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -14856,14 +14868,15 @@ a.logout-link i {
 
 a.button-link {
     display: inline-block;
-    padding: 10px 20px;
+    padding: .375rem .75rem;
     text-decoration: none;
-    color: white;
-    background-color: black;
-    border-radius: 15px;
-    border: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    color: #fff;
+    background-color: #0d6efd;
+    border-radius: .25rem;
+    border: 1px solid transparent;
+    font-weight: 400;
+    transition: background-color 0.15s ease;
+    line-height: 1.5;
 }
 
 a.button-link:hover {
@@ -14885,4 +14898,70 @@ a.dashboard-link::before {
     font-size: 0.8em;
     margin-right: 5px;
 }
+
+
+
+/****** LOGIN MODAL ******/
+
+
+.login-help{
+  font-size: 12px;
+}
+
+.login-btn {
+  text-align:center;
+  margin-top: 50px;
+}
+
+.button {
+  line-height: 55px;
+  padding: 0 30px;
+  background: #004a80;
+  color: #fff;
+  display: inline-block;
+  font-family: roboto;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.button:hover,
+.button:visited {
+  background: #006cba;
+  color: #fff;
+}
+
+.modal-input{
+    display: inline-block;
+    padding: .375rem .75rem;
+    text-decoration: none;
+    color: #fff;
+    background-color: #0d6efd;
+    border-radius: .25rem;
+    border: 1px solid transparent;
+    font-weight: 400;
+    transition: background-color 0.15s ease;
+    line-height: 1.5;
+    margin-top: 50px;
+}
+
+.modal-input-value{
+    display: inline-block;
+    padding: 2px 2px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #000;
+    background-color: w;
+    border-radius: .25rem;
+    border: 1px solid ;
+    border-color: #000;
+    font-weight: 300;
+    transition: background-color 0.15s ease;
+    line-height: 1.5;
+}
+
+
+
+
+
+
 

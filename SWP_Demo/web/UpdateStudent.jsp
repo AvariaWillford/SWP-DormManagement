@@ -12,6 +12,7 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="${jakarta.servlet.jsp.PageContext}resources/script/updatestudent.js"></script>
     </head>
     <body>
         <%
@@ -27,28 +28,28 @@
                 </tr>
                 <tr>
                     <td>Full Name</td>
-                    <td><input type="text" name="fullname" id=""value="<%=obj.getFullname()%>"></td>
+                    <td><input type="text" name="fullname" id=""value="<%=obj.getFullname()%>" readonly></td>
                 </tr>
                 <tr>
                     <td>Campus</td>
-                    <td><input type="text" name="campus" id=""value="<%=obj.getCampus()%>"></td>
+                    <td><input type="text" name="campus" id=""value="<%=obj.getCampus()%>" readonly></td>
                 </tr>
                 <tr>
                     <td>Phone</td>
-                    <td><input type="text" name="phoneNumber" id=""value="<%=obj.getPhoneNumber()%>"></td>
+                    <td><input type="text" name="phoneNumber" id=""value="<%=obj.getPhoneNumber()%>" readonly></td>
                 </tr>
                 <tr>
                     <td>Gender</td>
-                    <td><input type="text" name="gender" id=""value="<%=obj.getGender()%>"></td>
+                    <td><input type="text" name="gender" id=""value="<%=obj.getGender()%>" readonly></td>
                 </tr>
                 <tr>
                     <td>Term</td>
-                    <td><input type="text" name="term" id=""value="<%=obj.getTerm()%>">
+                    <td><input type="text" name="term" id=""value="<%=obj.getTerm()%>" readonly>
                     </td>
                 </tr>
                 <tr>
                     <td>Balance</td>
-                    <td><input type="text" name="balance" id=""value="<%=obj.getBalance()%>">
+                    <td><input type="text" name="balance" id="balance1"value="<%=obj.getBalance()%>">
                     </td>
                 </tr>
                 <tr>
@@ -59,7 +60,7 @@
                 
                 <tr>
                     <td><input type="submit" name="submit" value="Update Student"></td>
-                    <td><input type="reset" value="reset"></td>
+                    <td> <button id="qty" onclick="deleteClick(balance1)" class="btn btn-danger btn-sm rounded-1" type="button" data-toggle="tooltip" data-placement="top" title="Delete">Clear</button></td>
                 <input type="hidden" name="service" value="updateStudent">
                 </tr>
                 <tr>
