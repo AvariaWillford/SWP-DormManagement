@@ -31,19 +31,25 @@ public class DAOrequest extends DAL.DBContext {
     }
 
     // Method to insert a request into the Requests table
-    public boolean insertRequest(String requestType, String rollName, String requestDetail) throws SQLException {
-        if (!isRollNameExists(rollName)) {
-            throw new SQLException("rollName does not exist in DormResident table.");
-        }
-
-        String sql = "INSERT INTO Requests (requestType, rollName, requestDetail) VALUES (?, ?, ?)";
-        try (PreparedStatement stm = conn.prepareStatement(sql)) {
-            stm.setString(1, requestType);
-            stm.setString(2, rollName);
-            stm.setString(3, requestDetail);
-            return stm.executeUpdate() > 0;
-        }
+   public boolean insertRequest(String requestType, String rollName, String requestDetail) throws SQLException {
+    if (!isRollNameExists(rollName)) {
+        throw new SQLException("rollName does not exist in DormResident table.");
     }
+
+    String sql = "MERGE INTO Requests AS target " +
+                 "USING (VALUES (?, ?, ?)) AS source (requestType, rollName, requestDetail) " +
+                 "ON target.requestType = source.requestType " +
+                 "WHEN MATCHED THEN " +
+                 "UPDATE SET rollName = source.rollName, requestDetail = source.requestDetail " +
+                 "WHEN NOT MATCHED THEN " +
+                 "INSERT (requestType, rollName, requestDetail) VALUES (source.requestType, source.rollName, source.requestDetail);";
+    try (PreparedStatement stm = conn.prepareStatement(sql)) {
+        stm.setString(1, requestType);
+        stm.setString(2, rollName);
+        stm.setString(3, requestDetail);
+        return stm.executeUpdate() > 0;
+    }
+}
 
     public static void main(String[] args) {
         // Test the insertRequest method
@@ -51,8 +57,8 @@ public class DAOrequest extends DAL.DBContext {
 
         // Test data
         String requestType = "Maintenance";
-        String rollName = "HE186338"; 
-        String requestDetail = "Air conditioner not working";
+        String rollName = "HE186339"; 
+        String requestDetail = " Air conditioner not working";
 
         try {
             if (d.insertRequest(requestType, rollName, requestDetail)) {

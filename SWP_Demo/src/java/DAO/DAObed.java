@@ -20,6 +20,7 @@ import java.sql.Statement;
 import model.room;
 
 
+
 /**
  *
  * @author anhem
@@ -51,6 +52,7 @@ public class DAObed extends DAL.DBContext{
          return null;
        
     }
+    
       public room searchBedsByRoom(String roomName) {
        
         try {        
@@ -75,7 +77,7 @@ public class DAObed extends DAL.DBContext{
          return null;
        
     }
-   
+      
     public static void main(String[] args){
         DAObed dao = new DAObed();
         dao.searchBedsByName("no1_A101");
