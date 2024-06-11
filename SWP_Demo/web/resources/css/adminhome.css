@@ -14845,6 +14845,10 @@ a.logout-link {
     font-size: 1.2em;
     display: flex;
     align-items: center;
+    
+}
+.logout-link{
+    float:right;
 }
 
 a.general-link {
@@ -14964,4 +14968,13 @@ a.dashboard-link::before {
 
 
 
+
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jun 11, 2024, 9:26:07 PM
+    Author     : trant
+*/
 
