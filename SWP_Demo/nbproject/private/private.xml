@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/src/java/DAO/DAObed.java</file>
-            <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/src/java/DAO/DAOdormResidentInfo.java</file>
+            <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/src/java/DAO/DAOroom.java</file>
+            <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/src/java/AdminController/Request.java</file>
             <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/src/java/DAO/DAOrequest.java</file>
-            <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/src/java/DAO/DAOstudent.java</file>
-            <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/src/java/model/DormResident.java</file>
+            <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/web/Request.jsp</file>
         </group>
     </open-files>
 </project-private>
