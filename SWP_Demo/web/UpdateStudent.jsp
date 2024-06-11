@@ -52,7 +52,7 @@
                 </tr>
                 <tr>
                     <td>Balance</td>
-                    <td><input type="text" name="balance" id="balance1"value="<%=obj.getBalance()%>"class="modal-input-value">
+                    <td><input type="number" step="0.01" name="balance" id="balance1"value="<%=obj.getBalance()%>"class="modal-input-value" required="">
                     </td>
                 </tr>
                 <tr>
