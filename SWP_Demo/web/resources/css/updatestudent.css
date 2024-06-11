@@ -14973,6 +14973,18 @@ a.dashboard-link::before {
     transition: background-color 0.15s ease;
     line-height: 1.5;
 }
+.modal-input-value-noborder{
+    display: inline-block;
+    padding: 2px 2px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #000;
+    background-color: w;
+
+    font-weight: 300;
+    transition: background-color 0.15s ease;
+    line-height: 1.5;
+}
 
 form {
     
