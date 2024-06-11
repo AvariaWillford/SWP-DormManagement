@@ -28,7 +28,7 @@
 
             <aside class="menu-sidebar d-none d-lg-block" style="background-image: url(resources/img/back2.png);">
                 <div class="logo">
-                    <a href="#">
+                    <a href="AdminHome.jsp">
                         <img src="resources/img/fptuni.png" style="width:100%"; alt="FPT logo">
                     </a>
                 </div>
