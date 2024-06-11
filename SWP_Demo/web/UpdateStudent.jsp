@@ -12,7 +12,10 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="resources/css/updatestudent.css" rel="stylesheet" type="text/css"/>
         <script type="text/javascript" src="${jakarta.servlet.jsp.PageContext}resources/script/updatestudent.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
     </head>
     <body>
         <%
@@ -24,43 +27,43 @@
             <table>
                 <tr>
                     <td>Roll Name</td>
-                    <td><input type="text" name="rollName" id=""value="<%=obj.getRollName()%>" readonly></td>
+                    <td><input type="text" name="rollName" id=""value="<%=obj.getRollName()%>" class="modal-input-value"readonly></td>
                 </tr>
                 <tr>
                     <td>Full Name</td>
-                    <td><input type="text" name="fullname" id=""value="<%=obj.getFullname()%>" readonly></td>
+                    <td><input type="text" name="fullname" id=""value="<%=obj.getFullname()%>" class="modal-input-value"readonly></td>
                 </tr>
                 <tr>
                     <td>Campus</td>
-                    <td><input type="text" name="campus" id=""value="<%=obj.getCampus()%>" readonly></td>
+                    <td><input type="text" name="campus" id=""value="<%=obj.getCampus()%>" class="modal-input-value"readonly></td>
                 </tr>
                 <tr>
                     <td>Phone</td>
-                    <td><input type="text" name="phoneNumber" id=""value="<%=obj.getPhoneNumber()%>" readonly></td>
+                    <td><input type="text" name="phoneNumber" id=""value="<%=obj.getPhoneNumber()%>" class="modal-input-value"readonly></td>
                 </tr>
                 <tr>
                     <td>Gender</td>
-                    <td><input type="text" name="gender" id=""value="<%=obj.getGender()%>" readonly></td>
+                    <td><input type="text" name="gender" id=""value="<%=obj.getGender()%>" class="modal-input-value"readonly></td>
                 </tr>
                 <tr>
                     <td>Term</td>
-                    <td><input type="text" name="term" id=""value="<%=obj.getTerm()%>" readonly>
+                    <td><input type="text" name="term" id=""value="<%=obj.getTerm()%>" class="modal-input-value"readonly>
                     </td>
                 </tr>
                 <tr>
                     <td>Balance</td>
-                    <td><input type="text" name="balance" id="balance1"value="<%=obj.getBalance()%>">
+                    <td><input type="text" name="balance" id="balance1"value="<%=obj.getBalance()%>"class="modal-input-value">
                     </td>
                 </tr>
                 <tr>
                     <td>Gmail</td>
-                    <td><input type="text" name="gmail" id=""value="<%=obj.getGmail()%>" readonly>
+                    <td><input type="text" name="gmail" id=""value="<%=obj.getGmail()%>" class="modal-input-value"readonly>
                     </td>
                 </tr>
                 
                 <tr>
-                    <td><input type="submit" name="submit" value="Update Student"></td>
-                    <td> <button id="qty" onclick="deleteClick(balance1)" class="btn btn-danger btn-sm rounded-1" type="button" data-toggle="tooltip" data-placement="top" title="Delete">Clear</button></td>
+                    <td><input type="submit" name="submit" value="Update Student" class="modal-input"></td>
+                    <td> <button id="qty" onclick="deleteClick(balance1)" class="modal-input" style="margin-left: 20px" type="button" data-toggle="tooltip" data-placement="top" title="Delete">Clear</button></td>
                 <input type="hidden" name="service" value="updateStudent">
                 </tr>
                 <tr>

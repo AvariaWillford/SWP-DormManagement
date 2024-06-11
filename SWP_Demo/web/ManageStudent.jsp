@@ -18,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="resources/css/managestudent.css">
         <!--        <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script type="text/javascript" src="${jakarta.servlet.jsp.PageContext}resources/script/managestudent.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     </head>
@@ -158,6 +159,7 @@
                 </div>
             </div>
         </div>
+                                        
     </body>
 </html>
 
