@@ -78,18 +78,21 @@ public class DAObed extends DAL.DBContext{
        
     }
       
-    public static void main(String[] args){
+   public static void main(String[] args){
         DAObed dao = new DAObed();
         dao.searchBedsByName("no1_A101");
         dao.searchBedsByRoom("A101");
         
     }
+
+        
+    }
     
-    
+     
     
     
    
-}
+
 
 
 

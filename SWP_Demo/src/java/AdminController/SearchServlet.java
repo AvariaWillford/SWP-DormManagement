@@ -6,18 +6,21 @@
 package AdminController;
 
 import DAO.DAObed;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.bed;
+import model.room;
 
 /**
  *
  * @author anhem
  */
-public class bed extends HttpServlet {
+public class SearchServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,10 +37,10 @@ public class bed extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet bed</title>");  
+            out.println("<title>Servlet SearchServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet bed at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet SearchServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -54,7 +57,7 @@ public class bed extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-  response.sendRedirect("bed.jsp");
+      response.sendRedirect("search.jsp");
     } 
 
     /** 
@@ -67,21 +70,31 @@ public class bed extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-         String action = request.getParameter("action");
-        String name = request.getParameter("name");
+        String searchType = request.getParameter("searchType");
+        String searchValue = request.getParameter("searchValue");
         
         DAObed daoBed = new DAObed();
+        
         Object result = null;
         
-        if ("searchBed".equals(action)) {
-            result = daoBed.searchBedsByName(name);
-        } else if ("searchRoom".equals(action)) {
-            result = daoBed.searchBedsByRoom(name);
-        }
         
-        request.setAttribute("result", result);
-        request.getRequestDispatcher("bed.jsp").forward(request, response);
+        if (searchType != null && searchValue != null) {
+            if (searchType.equals("bed")) {
+                bed bed = daoBed.searchBedsByName(searchValue);
+                request.setAttribute("result", bed);
+                request.setAttribute("type", "bed");
+            } else if (searchType.equals("room")) {
+                room room = daoBed.searchBedsByRoom(searchValue);
+                request.setAttribute("result", room);
+                request.setAttribute("type", "room");
+            }
+        }
+
+         request.getRequestDispatcher("search.jsp").forward(request, response);
+        
+        
     }
+    
 
     /** 
      * Returns a short description of the servlet.

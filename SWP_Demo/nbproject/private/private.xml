@@ -4,9 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/src/java/DAO/DAOroom.java</file>
-            <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/src/java/AdminController/Request.java</file>
-            <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/src/java/DAO/DAOrequest.java</file>
+            <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/src/java/DAO/DAObed.java</file>
             <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/web/Request.jsp</file>
+            <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/web/WEB-INF/web.xml</file>
+            <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/web/bed.jsp</file>
+            <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/src/java/AdminController/request.java</file>
+            <file>file:/C:/FPT/Ki5/New%20folder/SWP_Demo/src/java/AdminController/SearchServlet.java</file>
         </group>
     </open-files>
 </project-private>

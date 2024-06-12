@@ -9,8 +9,8 @@
         <servlet-class>AdminController.request</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>bed</servlet-name>
-        <servlet-class>AdminController.bed</servlet-class>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>AdminController.SearchServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -20,12 +20,12 @@
         <servlet-name>request</servlet-name>
         <url-pattern>/request</url-pattern>
     </servlet-mapping>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>request</servlet-name>
         <url-pattern>/submitRequest</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>bed</servlet-name>
-        <url-pattern>/bed</url-pattern>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/searchServlet</url-pattern>
     </servlet-mapping>
 </web-app>
