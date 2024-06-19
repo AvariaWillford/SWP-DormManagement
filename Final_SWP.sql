@@ -8,6 +8,7 @@ drop table dormresident
 drop table news 
 drop table requests
 drop table role
+
 CREATE TABLE dorm (
     dormID INT,
     dormName VARCHAR(10),
@@ -67,7 +68,7 @@ CREATE TABLE News (
     newsDetail VARCHAR(MAX),
     time VARCHAR(10),
     picture VARCHAR(MAX),
-    postBy INT,
+    postBy Varchar(50),
     newsID INT PRIMARY KEY
 	FOREIGN KEY (postBy) REFERENCES Users(userID)
 );
@@ -76,7 +77,7 @@ CREATE TABLE News (
 CREATE TABLE Requests (
     requestID INT,
     requestType VARCHAR(100),
-    rollName INT,
+    rollName varchar(20),
     requestDetail VARCHAR(MAX),
 	userID int,
     PRIMARY KEY (requestID),
