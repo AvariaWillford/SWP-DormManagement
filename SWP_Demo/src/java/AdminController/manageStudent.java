@@ -2,12 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-
 package AdminController;
 
+import DAO.DAOBed;
 import DAO.DAODormResident;
-import model.admin;
-import model.student;
+import model.*;
 import DAO.DAOstudent;
 import DAO.DAOadmin;
 import jakarta.servlet.RequestDispatcher;
@@ -22,7 +21,7 @@ import jakarta.servlet.http.HttpSession;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import model.DormResident;
+
 
 /**
  *
@@ -44,6 +43,7 @@ public class manageStudent extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         DAOstudent dao = new DAOstudent();
+        DAOBed daob = new DAOBed();
         DAODormResident dao1 = new DAODormResident();
         String service = request.getParameter("service");
         HttpSession session = request.getSession(true);
@@ -54,7 +54,7 @@ public class manageStudent extends HttpServlet {
         if (service.equals("updateStudent")) {
             String submit = request.getParameter("submit");
             if (submit == null) {
-                List<student> list = (ArrayList<student>)dao.getStudent("select * from Student where rollName = '" + request.getParameter("rollName")+"'") ;
+                List<student> list = (ArrayList<student>) dao.getStudent("select * from Student where rollName = '" + request.getParameter("rollName") + "'");
                 request.setAttribute("list", list);
                 request.getRequestDispatcher("/UpdateStudent.jsp").forward(request, response);
 
@@ -69,12 +69,11 @@ public class manageStudent extends HttpServlet {
                 String gmail = request.getParameter("gmail");
                 //CHECK DATA
                 float balance_c = Float.parseFloat(balance);
-                String sql = "select * from Student where rollName = '" + rollName +"'";
+                String sql = "select * from Student where rollName = '" + rollName + "'";
                 List<student> list = dao.getStudent(sql);
                 if (list.size() > 0) {
                     //CONVERT
-                    
-                     
+
                     //CREATE ENTITY
                     student student = new student(rollName, fullname, campus, phoneNumber, gender, term, balance_c, gmail);
                     dao.updateStudent(student);
@@ -93,17 +92,20 @@ public class manageStudent extends HttpServlet {
             } else {
                 String rollName = request.getParameter("rollName");
                 String bedName = request.getParameter("bedName");
-                String sql = ("select * from DormResident where bedName = '" + request.getParameter("bedName") +"'");
-                List<DormResident> list = dao1.getDormResident(sql);
-                if (list.size() > 0) {
-                    response.sendRedirect("manageStudent?service=listAllStudent");
-                    return;
+                String message;
+                if (daob.checkBedStatus(bedName) == 0) {
+
+                    dao1.addToDorm(rollName, bedName);
+                    message = "Success to bookBed";
+                    request.setAttribute("message", message);
+
+                } else {
+                    message = "Bed not available now";
+                    request.setAttribute("message", message);
                 }
+                response.sendRedirect("manageStudent?service=listAllStudent");
                 //CONVERT
 
-                //CREATE ENTITY
-                dao1.addToDorm(rollName, bedName);
-                response.sendRedirect("manageStudent?service=listAllStudent");
             }
         }
 
@@ -113,26 +115,27 @@ public class manageStudent extends HttpServlet {
             response.sendRedirect("manageStudent?service=listAllStudent");
         }
         if (service.equals("logout")) {
-                session.invalidate();
-                response.sendRedirect("index.html");
-            }
-        
-        
+            session.invalidate();
+            response.sendRedirect("index.html");
+        }
 
         if (service.equals("listAllStudent")) {
             //CHECK SUBMIT
             String submit = request.getParameter("submit");
-            List<student> list  = null;
- 
+            List<student> list = null;
+
+            DAODormResident daod = new DAODormResident();
+            String roll = request.getParameter("rollName");
             if (submit == null) {
                 list = dao.getStudent("select * from Student");
+
             } else {
-                String roll = request.getParameter("rollName");
+
                 list = dao.getStudent("select * from Student where rollName like '%" + roll + "%'");
             }
-            
-            
-            
+
+            List<DormResident> dormResidents = dao1.getBedNameByRoll("SELECT * FROM DormResident");
+            request.setAttribute("dormResidents", dormResidents);
 
             String titlePage = "Sutdent Manage";
             String titleTable = "List of Student";
@@ -146,11 +149,11 @@ public class manageStudent extends HttpServlet {
             //RUN
             dispatch.forward(request, response);
         }
-        
+
         if (service.equals("listAllDormStudent")) {
             //CHECK SUBMIT
             String submit = request.getParameter("submit");
-            List<student> list  = null;
+            List<student> list = null;
 
             if (submit == null) {
                 list = dao.getStudent("select * from Student where rollName in(select rollName from DormResident);");
@@ -158,9 +161,6 @@ public class manageStudent extends HttpServlet {
                 String roll = request.getParameter("rollName");
                 list = dao.getStudent("select * from Student where rollName like '%" + roll + "%'");
             }
-            
-            
-            
 
             String titlePage = "Sutdent Manage";
             String titleTable = "List of Student";
@@ -174,8 +174,7 @@ public class manageStudent extends HttpServlet {
             //RUN
             dispatch.forward(request, response);
         }
-        
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

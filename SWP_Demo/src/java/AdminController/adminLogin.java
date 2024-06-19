@@ -16,11 +16,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.*;
 
+
 /**
  *
  * @author lenovo
  */
-@WebServlet(name="LoginController", urlPatterns={"/loginURL"})
+@WebServlet(name="login", urlPatterns={"/login"})
 public class adminLogin extends HttpServlet {
 
     /**
@@ -35,17 +36,23 @@ public class adminLogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String gmail = request.getParameter("gmail");
+        String username = request.getParameter("user");
         String password = request.getParameter("pass");
         DAOadmin dao = new DAOadmin();
-        admin admin = dao.login(gmail, password);
+        admina acc = dao.login(username, password);
         
-        if(admin==null){
-            request.setAttribute("message", "Wrong gmail or pass");
+        if(acc==null){
+            request.setAttribute("message", "Wrong user or pass");
             request.getRequestDispatcher("login.jsp").forward(request, response);
+            
         }
-        else{                      
-                response.sendRedirect("adminHome.jsp");
+        else{
+            HttpSession session = request.getSession();
+            session.setAttribute("acc", acc);
+
+            request.getRequestDispatcher("Dashboard.jsp").forward(request, response);
+            
+
         }
     }
 

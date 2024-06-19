@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+  
+  align-items: center;
+  justify-content: center;
+  font-family: 'Ropa Sans', sans-serif;
+}
+
+.slider {
+  max-height: 1000px; /* Điều chỉnh chiều cao tối đa theo ý muốn */
+  overflow: hidden;
+}
+
+.slides {
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-points-x: repeat(100%);
+}
+
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.slides::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.slides > div {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.img-container {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.img-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.slider > a {
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: white;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 0 0.5rem 0;
+  position: relative;
+}
+
+.slider > a:active {
+  top: 1px;
+}
+
+.slider > a:focus {
+  background: #000;
+}
+
+@supports (scroll-snap-type) {
+  .slider > a {
+    display: none;
+  }
+}

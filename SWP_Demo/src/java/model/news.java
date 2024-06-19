@@ -12,20 +12,20 @@ public class news {
     String newsName;
     String newsDetail;
     String time;
-    String day;
     String picture;
     String postBy;
+    int newsID;
 
     public news() {
     }
 
-    public news(String newsName, String newsDetail, String time, String day, String picture, String postBy) {
+    public news(String newsName, String newsDetail, String time, String picture, String postBy, int newsID) {
         this.newsName = newsName;
         this.newsDetail = newsDetail;
         this.time = time;
-        this.day = day;
         this.picture = picture;
         this.postBy = postBy;
+        this.newsID = newsID;
     }
 
     public String getNewsName() {
@@ -52,14 +52,6 @@ public class news {
         this.time = time;
     }
 
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
-    }
-
     public String getPicture() {
         return picture;
     }
@@ -76,9 +68,17 @@ public class news {
         this.postBy = postBy;
     }
 
+    public int getNewsID() {
+        return newsID;
+    }
+
+    public void setNewsID(int newsID) {
+        this.newsID = newsID;
+    }
+
     @Override
     public String toString() {
-        return "news{" + "newsName=" + newsName + ", newsDetail=" + newsDetail + ", time=" + time + ", day=" + day + ", picture=" + picture + ", postBy=" + postBy + '}';
+        return "news{" + "newsName=" + newsName + ", newsDetail=" + newsDetail + ", time=" + time + ", picture=" + picture + ", postBy=" + postBy + ", newsID=" + newsID + '}';
     }
     
 }

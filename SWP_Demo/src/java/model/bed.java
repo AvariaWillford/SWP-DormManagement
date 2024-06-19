@@ -9,25 +9,27 @@ package model;
  * @author lenovo
  */
 public class bed {
-    String bedName;
+    int bedID;
     int status;
-    float price;
+    Float price;
+    int roomID;
 
-    public bed(String bedName, int status, float price) {
-        this.bedName = bedName;
+    public bed(int bedID, int status, Float price, int roomID) {
+        this.bedID = bedID;
         this.status = status;
         this.price = price;
+        this.roomID = roomID;
     }
 
     public bed() {
     }
 
-    public String getBedName() {
-        return bedName;
+    public int getBedID() {
+        return bedID;
     }
 
-    public void setBedName(String bedName) {
-        this.bedName = bedName;
+    public void setBedID(int bedID) {
+        this.bedID = bedID;
     }
 
     public int getStatus() {
@@ -38,17 +40,25 @@ public class bed {
         this.status = status;
     }
 
-    public float getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(Float price) {
         this.price = price;
+    }
+
+    public int getRoomID() {
+        return roomID;
+    }
+
+    public void setRoomID(int roomID) {
+        this.roomID = roomID;
     }
 
     @Override
     public String toString() {
-        return "bed{" + "bedName=" + bedName + ", status=" + status + ", price=" + price + '}';
+        return "bed{" + "bedID=" + bedID + ", status=" + status + ", price=" + price + ", roomID=" + roomID + '}';
     }
     
 }

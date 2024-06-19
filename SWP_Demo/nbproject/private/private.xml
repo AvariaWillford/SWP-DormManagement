@@ -3,32 +3,41 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/web/AdminHome.jsp</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/web/resources/css/updatestudent.css</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/src/java/DAO/DAOstudent.java</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/src/java/DAO/DAODormResident.java</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/web/StudentHome.jsp</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/src/java/AdminController/forgotPassword.java</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/src/java/AdminController/manageStudent.java</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/src/java/DAL/DBContext.java</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/web/resources/script/updatestudent.js</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/web/ManageStudent.jsp</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/web/ViewPage.jsp</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/src/java/model/DormResident.java</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/web/resources/css/homepage.css</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/src/java/model/student.java</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/nbproject/build-impl.xml~</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/web/UpdateStudent.jsp</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/web/resources/img/btn_google.png</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/web/resources/css/signup.css</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/web/resources/css/managestudent.css</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/web/resources/css/login.css</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/web/index.html</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/src/java/DAO/DAOadmin.java</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/src/java/model/bed.java</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/web/resources/script/script.js</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/nbproject/build-impl.xml</file>
-            <file>file:/E:/temp2/FinalProject/SWP_Demo/web/resources/script/managestudent.js</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/StudentController/countStudent.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/DAO/DAOadmin.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/web/WEB-INF/web.xml</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/DAO/DAOBed.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/StudentController/sendRequest.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/AdminController/forgotPassword.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/AdminController/AdminLogin/logout.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/DAO/DAOrequest.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/web/newjsp.jsp</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/web/StudentHome.jsp</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/AdminController/ManageBed/manageBed.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/DAL/DBContext.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/AdminController/manageStudent.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/AdminController/AdminLogin/adminLogin.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/controller/home.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/web/Dashboard.jsp</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/web/UpdateBed.jsp</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/model/UserGoogleDto.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/StudentController/mail.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/web/AdminHome.jsp</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/StudentController/LoginGoogleHandler.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/web/StudentRequest.jsp</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/web/test2.jsp</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/AdminController/ManageBed/UpdateBed.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/StudentController/ForgotPassforAdmin.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/AdminController/ManageRequest/manageRequest.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/web/ManageStudent.jsp</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/web/ManageBed.jsp</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/web/test.jsp</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/AdminController/DashBoard.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/src/java/StudentController/showStudentInformation.java</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/web/viewPage.jsp</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/web/test3.jsp</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/web/ManageRequest.jsp</file>
+            <file>file:/H:/SWP/gitLab/FinalProject/SWP_Demo/web/UpdateStudent.jsp</file>
         </group>
     </open-files>
 </project-private>
