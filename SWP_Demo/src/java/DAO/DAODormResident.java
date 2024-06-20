@@ -12,28 +12,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.admina;
-import model.DormResident;
+import model.admin;
+import model.dormResident;
 import model.student;
 
 /**
  *
  * @author lenovo
  */
-public class DAODormResident extends DAL.DBContext {
+public class DAOdormResident extends DAL.DBContext {
 
-    public List<DormResident> getDormResident(String sql) {
-        List<DormResident> list = new ArrayList<>();
+    public List<dormResident> getdormResident(String sql) {
+        List<dormResident> list = new ArrayList<>();
         try {
             Statement statement = conn.createStatement(
                     ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
 //                dataType varName=rs.getdataType(index,fieldName);
-                DormResident DormResident = new DormResident();
-                DormResident.setRollName(rs.getString(1));
-                DormResident.setBedName(rs.getString(2));
-                list.add(DormResident);
+                dormResident dormResident = new dormResident();
+                dormResident.setRollName(rs.getString(1));
+                dormResident.setBedName(rs.getString(2));
+                list.add(dormResident);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOstudent.class.getName()).log(Level.SEVERE, sql);
@@ -41,10 +41,10 @@ public class DAODormResident extends DAL.DBContext {
         return list;
     }
 
-    public DormResident getBedName(String mail) {
+    public dormResident getBedName(String mail) {
         String sql = "SELECT dr.bedName\n"
                 + "FROM Student s\n"
-                + "JOIN DormResident dr ON s.rollName = dr.rollName\n"
+                + "JOIN dormResident dr ON s.rollName = dr.rollName\n"
                 + "where gmail = '" + mail + "'";
         try {
             PreparedStatement st = conn.prepareStatement(sql);
@@ -53,7 +53,7 @@ public class DAODormResident extends DAL.DBContext {
             while (rs.next()) {
                 String bedName = rs.getString(1);
               
-                DormResident bed = new DormResident(bedName);
+                dormResident bed = new dormResident(bedName);
 
                 return bed;
             }
@@ -66,7 +66,7 @@ public class DAODormResident extends DAL.DBContext {
 
     public int removeStudent(String rollName) {
         int n = 0;
-        String sql = "delete from DormResident where rollName = '" + rollName + "'";
+        String sql = "delete from dormResident where rollName = '" + rollName + "'";
         try {
             Statement statement = conn.createStatement();
             n = statement.executeUpdate(sql);
@@ -79,7 +79,7 @@ public class DAODormResident extends DAL.DBContext {
 
     public int addToDorm(String rollName, String bedName) {
         int n = 0;
-        String sql = "insert into DormResident values ('" + rollName + "','" + bedName + "')"
+        String sql = "insert into dormResident values ('" + rollName + "','" + bedName + "')"
                 + "update bed set status = 1 where bedName = '" + bedName + "'";
         try {
             Statement statement = conn.createStatement();
@@ -91,11 +91,11 @@ public class DAODormResident extends DAL.DBContext {
         return n;
     }
 
-    public int getTotalDormResident() {
+    public int getTotaldormResident() {
         try {
             PreparedStatement ps = null;
             ResultSet rs = null;
-            String sql = "select count(*) from ( select distinct rollName  from [DormResident] ) as a";
+            String sql = "select count(*) from ( select distinct rollName  from [dormResident] ) as a";
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
             rs.next();
@@ -106,18 +106,18 @@ public class DAODormResident extends DAL.DBContext {
         }
         return 0;
     }
-    public List<DormResident> getBedNameByRoll(String sql) {
-        List<DormResident> list = new ArrayList<>();
+    public List<dormResident> getBedNameByRoll(String sql) {
+        List<dormResident> list = new ArrayList<>();
         try {
             Statement statement = conn.createStatement(
                     ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
 //                dataType varName=rs.getdataType(index,fieldName);
-                DormResident DormResident = new DormResident();
-                DormResident.setRollName(rs.getString(1));
-                DormResident.setBedName(rs.getString(2));
-                list.add(DormResident);
+                dormResident dormResident = new dormResident();
+                dormResident.setRollName(rs.getString(1));
+                dormResident.setBedName(rs.getString(2));
+                list.add(dormResident);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAOstudent.class.getName()).log(Level.SEVERE, sql);
@@ -127,7 +127,7 @@ public class DAODormResident extends DAL.DBContext {
 
 
     public static void main(String[] args) {
-        DAODormResident dao = new DAODormResident();
+        DAOdormResident dao = new DAOdormResident();
         System.out.println(dao.getBedName("minhtnhe186338@fpt.edu.vn"));
     }
 }

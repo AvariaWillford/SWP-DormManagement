@@ -83,8 +83,3 @@ body {
   background: #000;
 }
 
-@supports (scroll-snap-type) {
-  .slider > a {
-    display: none;
-  }
-}

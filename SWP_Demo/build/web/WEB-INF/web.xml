@@ -28,6 +28,10 @@
         <servlet-name>UpdateBed</servlet-name>
         <servlet-class>AdminController.UpdateBed</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChargeMoney</servlet-name>
+        <servlet-class>StudentController.ChargeMoney</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DashBoard</servlet-name>
         <url-pattern>/DashBoard</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>UpdateBed</servlet-name>
         <url-pattern>/UpdateBed</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChargeMoney</servlet-name>
+        <url-pattern>/ChargeMoney</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>

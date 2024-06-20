@@ -26,6 +26,16 @@ public class dormResident {
         this.bedID = bedID;
     }
 
+    public dormResident(int bedID) {
+        this.bedID = bedID;
+    }
+
+    public dormResident(String bedName) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    
+
     public Date getCheckInDate() {
         return checkInDate;
     }

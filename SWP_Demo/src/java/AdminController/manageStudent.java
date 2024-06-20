@@ -5,7 +5,7 @@
 package AdminController;
 
 import DAO.DAOBed;
-import DAO.DAODormResident;
+import DAO.DAOdormResident;
 import model.*;
 import DAO.DAOstudent;
 import DAO.DAOadmin;
@@ -44,7 +44,7 @@ public class manageStudent extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         DAOstudent dao = new DAOstudent();
         DAOBed daob = new DAOBed();
-        DAODormResident dao1 = new DAODormResident();
+        DAOdormResident dao1 = new DAOdormResident();
         String service = request.getParameter("service");
         HttpSession session = request.getSession(true);
         if (service == null) {
@@ -124,7 +124,7 @@ public class manageStudent extends HttpServlet {
             String submit = request.getParameter("submit");
             List<student> list = null;
 
-            DAODormResident daod = new DAODormResident();
+            DAOdormResident daod = new DAOdormResident();
             String roll = request.getParameter("rollName");
             if (submit == null) {
                 list = dao.getStudent("select * from Student");
@@ -134,7 +134,7 @@ public class manageStudent extends HttpServlet {
                 list = dao.getStudent("select * from Student where rollName like '%" + roll + "%'");
             }
 
-            List<DormResident> dormResidents = dao1.getBedNameByRoll("SELECT * FROM DormResident");
+            List<dormResident> dormResidents = dao1.getBedNameByRoll("SELECT * FROM DormResident");
             request.setAttribute("dormResidents", dormResidents);
 
             String titlePage = "Sutdent Manage";

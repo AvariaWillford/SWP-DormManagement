@@ -42,16 +42,24 @@ public class LoginGoogleHandler extends HttpServlet {
         UserGoogleDto user = getUserInfo(accesstoken);
         System.out.println(user);
         DAOstudent dao = new DAOstudent();
-        DAODormResident daod = new DAODormResident();
+        DAOdormResident daod = new DAOdormResident();
         HttpSession session = request.getSession();
-        student student = dao.checkStudentExistByEmail(user.getEmail());
-        DormResident bedName = daod.getBedName(user.getEmail());
-        if (student == null) {
+        Users std = dao.checkUserExistByEmail(user.getEmail());
+        dormResident resident = daod.getBedName(std.getUserID());
+        if (std == null) {
             request.getRequestDispatcher("viewPage.jsp").forward(request, response);
-        } else {
-            session.setAttribute("bName", bedName);
-            session.setAttribute("std", student);
+        } else if (std.getRoleID() == 3) {
+            session.setAttribute("bName", resident);
+            session.setAttribute("std", std);
             request.getRequestDispatcher("StudentHome.jsp").forward(request, response);
+        } else if (std.getRoleID() == 2) {
+
+            session.setAttribute("std", std);
+            request.getRequestDispatcher("StudentHome.jsp").forward(request, response);
+
+        } else if (std.getRoleID() == 1) {
+            session.setAttribute("std", std);
+            request.getRequestDispatcher("DashBoard").forward(request, response);
         }
 
     }
