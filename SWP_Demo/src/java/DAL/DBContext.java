@@ -46,8 +46,8 @@ public class DBContext {
            return rs;
     }
     public DBContext(){
-      this("jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=SWP",
-                    "sa","minhdbd4");
+      this("jdbc:sqlserver://localhost\\MSSQLEXPRESS:1433;databaseName=Final_SWP",
+                    "sa","Hung12345$");
     }
     public static void main(String[] args) {
         new DBContext();

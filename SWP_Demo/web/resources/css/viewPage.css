@@ -1,4 +1,4 @@
-* {
+/** {
   box-sizing: border-box;
 }
 
@@ -17,7 +17,7 @@ body {
 }
 
 .slider {
-  max-height: 1000px; /* Điều chỉnh chiều cao tối đa theo ý muốn */
+  max-height: 1000px;  Điều chỉnh chiều cao tối đa theo ý muốn 
   overflow: hidden;
 }
 
@@ -87,4 +87,4 @@ body {
   .slider > a {
     display: none;
   }
-}
+}*/
