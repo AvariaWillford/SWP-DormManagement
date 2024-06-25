@@ -20,6 +20,7 @@
     </style>
 </head>
 <body>
+    <h1>Book here</h1>
     <div class="container">
         <h1>Bed Details</h1>
         <table class="table table-bordered">
